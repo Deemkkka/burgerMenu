@@ -59,4 +59,84 @@ nav > a img{
 
 .header__list-item{
     font-size: 14px;
+    transition: all .5s;
+}
+
+.burger-label{
+    display: none;
+}
+
+#burger-toggle{
+    display: none;
+}
+
+@media(max-width: 784px){
+    .burger-label{
+        position: absolute;
+        display: block;
+        height: 25px;
+        width: 30px;
+        right: 0;
+    }
+
+    .burger-label::after,
+    .burger-label::before,
+    .burger-label span{
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background-color: #fff;
+        transition: all .5s;
+    }
+
+    .burger-label::before{
+        content: '';
+        top: 0;
+    }
+
+    .burger-label::after{
+        content: '';
+        bottom: 0;
+    }
+
+    .burger-label span{
+        top: 11px;
+    }
+
+    #burger-toggle:checked ~ .burger-label::before{
+        transform: rotate(45deg);
+        top: 12px;
+    }
+
+    #burger-toggle:checked ~ .burger-label::after{
+        transform: rotate(-45deg);
+        top: 12px;
+    }
+
+    #burger-toggle:checked ~ .burger-label span{
+        transform: rotate(45deg);
+        top: 12px;
+    }
+
+    .header__list{
+        position: fixed;
+        left: 0;
+        right: 0;
+        background-color: #151515;
+        padding-top: 300px;
+        z-index: -1;
+        flex-direction: column;
+        text-align: center;
+        font-size: 12px;
+
+        left: -100vw;
+        right: 100vw;
+
+        transition: all .5s;
+    }
+
+    #burger-toggle:checked ~ .header__list{
+        left: 0;
+        right: 0;
+    }
 }
